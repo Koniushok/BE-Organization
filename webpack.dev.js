@@ -1,6 +1,4 @@
-const webpack = require("webpack");
 const merge = require("webpack-merge");
-const hMR = new webpack.HotModuleReplacementPlugin();
 
 const common = require("./webpack.config.js");
 
@@ -12,6 +10,5 @@ module.exports = merge(common, {
   devServer: {
     port: process.env.PORT || defaultPort,
     quiet: true
-  },
-  plugins: [hMR]
+  }
 });
