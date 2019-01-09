@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const StatsPlugin = require("stats-webpack-plugin");
 const path = require("path");
 
 const defaultPort = 3000;
@@ -6,6 +7,11 @@ const defaultPort = 3000;
 const htmlPlugin = new HtmlWebPackPlugin({
   filename: "index.html",
   template: "./public/index.html"
+});
+
+const statsPlugin = new StatsPlugin("stats.json", {
+  chunkModules: true,
+  exclude: [/node_modules[\\\/]react/]
 });
 
 module.exports = {
@@ -47,5 +53,6 @@ module.exports = {
     port: process.env.PORT || defaultPort,
     quiet: true
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin, statsPlugin],
+  profile: true
 };
