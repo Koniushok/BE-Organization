@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const StatsWebpackPlugin = require("stats-webpack-plugin");
