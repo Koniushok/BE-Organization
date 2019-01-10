@@ -21,7 +21,7 @@ const packageChecker = new DuplicatePackageCheckerWebpackPlugin();
 module.exports = {
   entry: "./src/index",
   output: {
-    path: path.resolve(__dirname, "build"),
+    path: path.join(__dirname, "..", "build"),
     filename: "webpack.bundled.js"
   },
   module: {

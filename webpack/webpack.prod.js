@@ -26,6 +26,7 @@ const copyPlugin = new CopyWebpackPlugin([
 
 module.exports = merge(common, {
   mode: "production",
+  devtool: "source-map",
   stats: {
     colors: false,
     hash: true,
@@ -37,6 +38,7 @@ module.exports = merge(common, {
     children: true
   },
   optimization: {
+    minimize: true,
     minimizer: [terser],
     runtimeChunk: false,
     splitChunks: {
