@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { hot } from "react-hot-loader/root";
 
 class App extends Component {
   render() {
-    return <React.Fragmen>Art</React.Fragmen>;
+    return <Fragment>Art</Fragment>;
   }
 }
 
