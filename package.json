@@ -8,9 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config=./webpack.dev.js --mode development --open",
-    "hot": "webpack-dev-server --config=./webpack.dev.js --mode development --open --hot",
-    "watch": "webpack-dev-server --config=./webpack.dev.js --mode development --open --watch",
-    "build": "webpack --config=./webpack.prod.js --mode production"
+    "build": "webpack --progress --config=./webpack.prod.js --mode production"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -23,20 +21,22 @@
     "@hot-loader/react-dom": "^16.7.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-styled-components": "^1.10.0",
+    "copy-webpack-plugin": "^4.6.0",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "file-loader": "^3.0.1",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-rename": "^1.4.0",
     "html-webpack-plugin": "^3.2.0",
     "react-hot-loader": "^4.6.3",
     "terser-webpack-plugin": "^1.2.1",
-    "url-loader": "^1.1.2",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "gulp": "^4.0.0"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "styled-components": "^4.1.3"
