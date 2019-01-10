@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const common = require("./webpack.config.js");
 
@@ -15,6 +16,13 @@ const definePlugin = new webpack.DefinePlugin({
     NODE_ENV: JSON.stringify("production")
   }
 });
+
+const copyPlugin = new CopyWebpackPlugin([
+  {
+    from: "src/static/normalize.min.css",
+    to: "src/static/normalize.min.css"
+  }
+]);
 
 module.exports = merge(common, {
   mode: "production",
@@ -43,5 +51,5 @@ module.exports = merge(common, {
       }
     }
   },
-  plugins: [definePlugin]
+  plugins: [definePlugin, copyPlugin]
 });
