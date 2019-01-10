@@ -37,6 +37,15 @@ module.exports = merge(common, {
     modules: true,
     children: true
   },
+  module: {
+    rules: [
+      {
+        test: /\.(jpe?g|png|svg)$/,
+        loader: "image-webpack-loader",
+        enforce: "pre"
+      }
+    ]
+  },
   optimization: {
     minimize: true,
     minimizer: [terser],
