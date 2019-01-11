@@ -1,32 +1,33 @@
-const webpack = require("webpack");
-const merge = require("webpack-merge");
-const TerserPlugin = require("terser-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+/* eslint-disable import/no-extraneous-dependencies */
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const TerserPlugin = require('terser-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const common = require("./webpack.config.js");
+const common = require('./webpack.config.js');
 
 const terser = new TerserPlugin({
   cache: true,
   parallel: true,
-  sourceMap: true
+  sourceMap: true,
 });
 
 const definePlugin = new webpack.DefinePlugin({
-  "process.env": {
-    NODE_ENV: JSON.stringify("production")
-  }
+  'process.env': {
+    NODE_ENV: JSON.stringify('production'),
+  },
 });
 
 const copyPlugin = new CopyWebpackPlugin([
   {
-    from: "src/static/normalize.min.css",
-    to: "src/static/normalize.min.css"
-  }
+    from: 'src/static',
+    to: 'src/static',
+  },
 ]);
 
 module.exports = merge(common, {
-  mode: "production",
-  devtool: "source-map",
+  mode: 'production',
+  devtool: 'source-map',
   stats: {
     colors: false,
     hash: true,
@@ -35,16 +36,16 @@ module.exports = merge(common, {
     chunks: true,
     chunkModules: true,
     modules: true,
-    children: true
+    children: true,
   },
   module: {
     rules: [
       {
         test: /\.(jpe?g|png|svg)$/,
-        loader: "image-webpack-loader",
-        enforce: "pre"
-      }
-    ]
+        loader: 'image-webpack-loader',
+        enforce: 'pre',
+      },
+    ],
   },
   optimization: {
     minimize: true,
@@ -55,12 +56,12 @@ module.exports = merge(common, {
         default: false,
         commons: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all",
-          minChunks: 2
-        }
-      }
-    }
+          name: 'vendors',
+          chunks: 'all',
+          minChunks: 2,
+        },
+      },
+    },
   },
-  plugins: [definePlugin, copyPlugin]
+  plugins: [definePlugin, copyPlugin],
 });
