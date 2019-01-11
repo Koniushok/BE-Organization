@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const merge = require('webpack-merge');
 const { HotModuleReplacementPlugin } = require('webpack');
 const common = require('./webpack.config.js');
@@ -13,14 +14,14 @@ module.exports = merge(common, {
         enforce: 'pre',
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
-      }
-    ]
+        use: ['eslint-loader', 'stylelint-custom-processor-loader'],
+      },
+    ],
   },
   plugins: [new HotModuleReplacementPlugin()],
   devServer: {
     port: process.env.PORT || defaultPort,
     quiet: true,
-    hot: true
-  }
+    hot: true,
+  },
 });

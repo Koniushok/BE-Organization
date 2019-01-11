@@ -10,7 +10,8 @@
     "start": "yarn flow status & webpack-dev-server --config webpack/webpack.dev.js --mode development --open",
     "build": "webpack --progress --config webpack/webpack.prod.js --mode production",
     "lint": "eslint .",
-    "flow": "flow"
+    "flow": "flow",
+    "stylelint": "stylelint src/assets/styles/**/*.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -45,6 +46,11 @@
     "image-webpack-loader": "^4.6.0",
     "prettier": "^1.15.3",
     "react-hot-loader": "^4.6.3",
+    "stylelint": "^9.9.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-custom-processor-loader": "^0.6.0",
+    "stylelint-processor-styled-components": "^1.5.1",
     "terser-webpack-plugin": "^1.2.1",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.1",
